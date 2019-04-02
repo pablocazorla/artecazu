@@ -1,0 +1,38 @@
+body{
+	font-family: 'Open Sans', sans-serif;
+	line-height: 1.9;
+	color:@color-text;
+	.align-justify;
+	text-rendering: optimizeLegibility;
+	overflow-y: scroll;
+}
+*,*:after,*:before{
+	 -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+h1,h2,h3,
+h4,h5,h6{
+	.titled;
+}
+p{
+	text-indent: 1em;
+}
+a{
+	color:@color-primary;
+	.transition(all .12s);
+	&:hover{
+		color: lighten(@color-primary,10%);
+	}
+}
+
+
+
+
+.container{
+	max-width: 1030px;
+	padding: 0 15px;
+	margin: 0 auto;
+}

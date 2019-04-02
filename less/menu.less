@@ -1,0 +1,35 @@
+.main-menu{
+	margin: 0;
+	padding: 50px 0;
+	max-width: 500px;
+	margin: 0 auto;
+	ul{
+		list-style: inside none;
+		margin: 0;
+		padding: 0;
+		.align-center;
+		.font-alt;
+		font-size: 0;
+		li{
+			display: inline-block;
+			font-size: 22px;
+			padding: .4em 0;
+			a{
+				color:@color-text;
+				text-decoration: none;
+				display: block;
+				line-height: 1;
+				padding: 0 .8em;
+				border-right: 1px solid #DDD;
+				&:hover{
+					color: lighten(@color-text,25%);
+				}
+			}
+			&:last-child{
+				a{
+					border-right: none;
+				}
+			}
+		}
+	}
+}

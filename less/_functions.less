@@ -1,0 +1,77 @@
+.bold(){
+	font-weight: bold;
+}
+.italic(){
+	font-style: italic;
+}
+.uppercase(){
+	text-transform: uppercase;
+}
+// TRANSITION
+.transition(@t){
+  -webkit-transition:@t;
+  -ms-transition:@t;
+  transition:@t;
+}
+// TRANSFORM
+.transform(@t) {
+  -webkit-transform: @t;
+  -ms-transform: @t;
+  transform: @t;
+}
+// USER SELECTION
+.user-select-none() {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.unwrap(){
+  white-space: nowrap;
+}
+.font-alt(){
+	font-family: 'Montserrat', sans-serif;
+}
+.titled(){
+	font-weight: 300;
+	color:@color-titles;
+	.font-alt;
+	.uppercase;
+}
+
+.clearfix() {
+  zoom: 1;
+  &:before, &:after {
+    content: '';
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.generate-grids(@txt, @n, @i: 1) when (@i =< @n) {
+  @num: @i;
+  .grid@{txt}@{num}{
+    .box {
+      width: percentage(1 / @num);
+    }
+  }
+  .generate-grids(@txt, @n, (@i + 1));
+}
+
+.generate-gutters(@txt, @n, @i: 0) when (@i =< @n) {
+  @num: @i;
+  @rem: 10px;
+  .gutter@{txt}@{num}{
+    &[class^='grid'], &[class*=' grid']{
+      margin-left: -0.5 * @num * @rem;
+      margin-right: -0.5 * @num * @rem;
+      & > .box {
+        padding-left: 0.5 * @num * @rem;
+        padding-right: 0.5 * @num * @rem;
+      }
+    }  
+  }
+  .generate-gutters(@txt, @n, (@i + 1));
+}
